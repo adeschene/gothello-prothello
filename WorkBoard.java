@@ -28,7 +28,7 @@ public class WorkBoard extends Board
     int pruningMinimax(int depth, int alpha, int beta, boolean maxingPlayer)
 	{
 		Vector<Move> moves = genMoves();
-		if (depth <= 0 || !has_moves())
+		if (depth <= 0 || moves.isEmpty())
 	    	return heval();
 		if (maxingPlayer)
 		{

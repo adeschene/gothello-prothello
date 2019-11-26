@@ -3,12 +3,12 @@ import java.io.*;
 
 class TerminationException extends Exception {}
 
-public class Grossthello {
+public class Prothello {
     GthClient client;
     WorkBoard board = new WorkBoard();
     int depth;
     
-    public Grossthello(GthClient client, int depth)
+    public Prothello(GthClient client, int depth)
 	{
 		this.client = client;
 		this.depth = depth;
@@ -21,14 +21,14 @@ public class Grossthello {
 		if (board.to_move == Board.PLAYER_BLACK)
 			ellipses = "";
 		System.out.println(
-				"me:  " + board.serial + ". " + ellipses + board.best_move.name()
+				"me:  " + board.serial + ". " + ellipses + board.bestMoveFound.name()
 		);
-		int result = board.try_move(board.best_move);
+		int result = board.try_move(board.bestMoveFound);
 		if (result == board.ILLEGAL_MOVE)
 	    	throw new Error("attempted illegal move");
 		int state;
 		try {
-	    	state = client.make_move(board.best_move);
+	    	state = client.make_move(board.bestMoveFound);
 		} catch(IOException e) {
 	    	e.printStackTrace(System.out);
 	    	throw new Error("move refused by referee");
@@ -113,7 +113,7 @@ public class Grossthello {
 		int server = Integer.parseInt(args[2]);
 		GthClient client = new GthClient(side, host, server);
 		int depth = Integer.parseInt(args[3]);
-		Grossthello game = new Grossthello(client, depth);
+		Prothello game = new Prothello(client, depth);
 
 		// Start game
 		game.play();
