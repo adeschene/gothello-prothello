@@ -36,7 +36,7 @@ public class WorkBoard extends Board
 			for (Move nextMove : moves)
 			{
 				WorkBoard nextBoard = new WorkBoard(this);
-				int status = nextBoard.try_move(bestMoveFound);
+				int status = nextBoard.try_move(nextMove);
 				if (status == ILLEGAL_MOVE)
 					throw new Error("unexpectedly illegal move");
 				if (status == GAME_OVER)
@@ -55,7 +55,7 @@ public class WorkBoard extends Board
 			for (Move nextMove : moves)
 			{
 				WorkBoard nextBoard = new WorkBoard(this);
-				int status = nextBoard.try_move(bestMoveFound);
+				int status = nextBoard.try_move(nextMove);
 				if (status == ILLEGAL_MOVE)
 					throw new Error("unexpectedly illegal move");
 				if (status == GAME_OVER)
