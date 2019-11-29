@@ -1,0 +1,6 @@
+[submodule "gothello-gthd"]
+	path = gothello-gthd
+	url = https://github.com/pdx-cs-ai/gothello-gthd.git
+[submodule "gothello-libclient-java"]
+	path = gothello-libclient-java
+	url = https://github.com/pdx-cs-ai/gothello-libclient-java.git
